@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amba Gold - Wholesale Gold & Silver Jewellery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Cormorant Garamond', 'serif'],
+                        'sans': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-dark': '#1a1a1a', // A rich, off-black
+                        'brand-gold': '#d4af37', // A classic, rich gold
+                        'brand-light': '#f0f0f0', // A soft, off-white for text
+                        'brand-gray': '#a3a3a3',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a; /* brand-dark */
+            color: #f0f0f0; /* brand-light */
+        }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        
+        .nav-link {
+            @apply text-brand-light hover:text-brand-gold relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:block after:bg-brand-gold after:transition-all after:duration-300 after:-bottom-1 after:left-1/2 after:-translate-x-1/2;
+        }
+        .nav-link:hover {
+            @apply after:w-full;
+        }
+        
+        .hero-title {
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        .btn-primary {
+            @apply font-semibold py-3 px-10 rounded-full transition-all duration-300;
+            background-color: transparent;
+            color: white;
+            border: 2px solid #d4af37; /* brand-gold */
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background-color: #d4af37; /* brand-gold */
+            color: #1a1a1a; /* brand-dark */
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .section-title {
+            @apply font-serif text-4xl md:text-5xl font-bold tracking-tight text-white;
+        }
+        .section-subtitle {
+            @apply mt-4 max-w-2xl mx-auto text-brand-gray;
+        }
+
+        .product-card {
+             @apply bg-transparent rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 cursor-pointer group;
+        }
+        .product-card img {
+            transition: transform 0.4s ease-out;
+        }
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-light">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 left-0 right-0 z-50 bg-brand-dark/80 backdrop-blur-lg border-b border-brand-gold/20">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-serif font-bold text-white">AMBA <span class="text-brand-gold">GOLD</span></a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#products" class="nav-link">Collection</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0-0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2 bg-brand-dark">
+            <a href="#about" class="block nav-link text-center py-2">About</a>
+            <a href="#products" class="block nav-link text-center py-2">Collection</a>
+            <a href="#contact" class="block nav-link text-center py-2">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-center -mt-20 bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/2f73bb61658493.5a75732e670c8.jpg');">
+            <div class="container mx-auto px-6 reveal visible">
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4 hero-title">
+                    The Art of Precious Metals
+                </h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-brand-light opacity-90">
+                    Discover unparalleled craftsmanship in wholesale gold and silver jewellery.
+                </p>
+                <a href="#products" class="btn-primary">View Our Collection</a>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="py-20 md:py-32 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center reveal">
+                    <div class="w-full h-80 md:h-[600px] rounded-lg">
+                         <img src="https://images.stockcake.com/public/6/7/8/6781cf0c-a6d1-4321-81ab-ba7de3873f8c_large/intricate-jewelry-crafting-stockcake.jpg" alt="Crafting a legacy in jewellery" class="w-full h-full object-cover rounded-lg shadow-2xl shadow-brand-gold/10">
+                    </div>
+                    <div>
+                        <div class="bg-[#222222] p-8 md:p-12 rounded-lg shadow-lg">
+                            <h2 class="section-title mb-6">A Legacy <span class="text-brand-gold">Forged in Trust</span></h2>
+                            <p class="mb-4 text-brand-gray">
+                                For decades, Amba Gold has been a cornerstone of the wholesale jewellery market in India. Founded by brothers Manoj and Bharat Jain, we blend traditional artistry with contemporary designs.
+                            </p>
+                            <p class="mb-6 text-brand-gray">
+                                Our commitment is to provide our partners with exceptional quality, transparent pricing, and a collection that speaks to every occasion. We are partners in your success.
+                            </p>
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 text-brand-light pt-4 border-t border-brand-gold/20">
+                                <div class="flex items-center space-x-3"> <i data-lucide="gem" class="text-brand-gold"></i> <span>Exquisite Craftsmanship</span></div>
+                                <div class="flex items-center space-x-3"> <i data-lucide="shield-check" class="text-brand-gold"></i> <span>Purity Guaranteed</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Page -->
+        <section id="products" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="section-title">Our <span class="text-brand-gold">Signature Collection</span></h2>
+                    <p class="section-subtitle">A curated selection of our finest pieces, available for wholesale.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+                    <!-- Product Cards -->
+                    <div class="product-card reveal"><div class="overflow-hidden rounded-lg"><img src="https://assets.vogue.in/photos/67124e4896021aa21abbbb94/2:3/w_2560%2Cc_limit/Snapinsta.app_399808804_3692270281010719_2108380079110491784_n_1080.jpg" alt="Kundan Necklace" class="w-full h-96 object-cover"></div><div class="pt-4"><h3 class="text-xl font-bold font-serif text-white">The Royal Kundan</h3><p class="text-sm text-brand-gray mt-1">Exquisite 22k gold bridal necklace set with a Jadau Kundan setting.</p></div></div>
+                    <div class="product-card reveal" style="transition-delay: 100ms;"><div class="overflow-hidden rounded-lg"><img src="https://accessorizelondon.in/cdn/shop/files/MA-10002971331_1_1f88882b-05c0-4245-9b80-4a544e97f7dc.jpg?v=1727764366" alt="Silver Earrings" class="w-full h-96 object-cover"></div><div class="pt-4"><h3 class="text-xl font-bold font-serif text-white">Sterling Droplets</h3><p class="text-sm text-brand-gray mt-1">Sleek 925 sterling silver drop earrings for a modern, minimalist design.</p></div></div>
+                    <div class="product-card reveal" style="transition-delay: 200ms;"><div class="overflow-hidden rounded-lg"><img src="https://m.media-amazon.com/images/I/71uKxKdEvqL._UY1100_.jpg" alt="Solitaire Ring" class="w-full h-96 object-cover"></div><div class="pt-4"><h3 class="text-xl font-bold font-serif text-white">Solitaire's Promise</h3><p class="text-sm text-brand-gray mt-1">A timeless 18k gold solitaire ring, hallmarked for purity and classic elegance.</p></div></div>
+                    <div class="product-card reveal" style="transition-delay: 300ms;"><div class="overflow-hidden rounded-lg"><img src="https://www.griiham.in/cdn/shop/files/Gold-Plated-set-of-4-AD-bangles-Designer-Bangles-Griiham-2_4_aeee883b-82c3-401c-b5fc-843a49d3a184.jpg?v=1742231489" alt="Gold Bangles" class="w-full h-96 object-cover"></div><div class="pt-4"><h3 class="text-xl font-bold font-serif text-white">Heritage Bangles</h3><p class="text-sm text-brand-gray mt-1">Set of four 22k gold bangles with intricate traditional craftsmanship.</p></div></div>
+                    <div class="product-card reveal"><div class="overflow-hidden rounded-lg"><img src="https://i.etsystatic.com/10428479/r/il/f35bd3/2518198103/il_fullxfull.2518198103_l535.jpg" alt="Gold Bracelet" class="w-full h-96 object-cover"></div><div class="pt-4"><h3 class="text-xl font-bold font-serif text-white">Ornate Bracelet</h3><p class="text-sm text-brand-gray mt-1">Magnificent 22k gold bracelet showcasing delicate and detailed filigree artistry.</p></div></div>
+                    <div class="product-card reveal" style="transition-delay: 100ms;"><div class="overflow-hidden rounded-lg"><img src="https://cdn.notonthehighstreet.com/fs/c7/0d/5fb5-189d-4168-88ab-ba0d325ad246/original_extra-large-engraved-silver-locket-with-birthstone.jpg" alt="Silver Locket" class="w-full h-96 object-cover"></div><div class="pt-4"><h3 class="text-xl font-bold font-serif text-white">Silver Locket</h3><p class="text-sm text-brand-gray mt-1">Intricately engraved 925 sterling silver locket for timeless elegance.</p></div></div>
+                    <div class="product-card reveal" style="transition-delay: 200ms;"><div class="overflow-hidden rounded-lg"><img src="https://maioradiamonds.in/cdn/shop/files/MD-ER00028_2_1800x.jpg?v=1746883385" alt="Diamond Studs" class="w-full h-96 object-cover"></div><div class="pt-4"><h3 class="text-xl font-bold font-serif text-white">Diamond Studs</h3><p class="text-sm text-brand-gray mt-1">Brilliant-cut diamond studs set in lustrous 18k white gold. Certified for sparkle.</p></div></div>
+                    <div class="product-card reveal" style="transition-delay: 300ms;"><div class="overflow-hidden rounded-lg"><img src="https://rudrakshartjewellery.in/cdn/shop/products/IMG_1982_2048x2048.jpg?v=1681736862" alt="Gold Chain" class="w-full h-96 object-cover"></div><div class="pt-4"><h3 class="text-xl font-bold font-serif text-white">Classic Gold Chain</h3><p class="text-sm text-brand-gray mt-1">A durable and versatile 24k pure gold chain. An essential and timeless staple.</p></div></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 bg-black/20">
+             <div class="container mx-auto px-6 reveal">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Connect With <span class="text-brand-gold">Us</span></h2>
+                    <p class="section-subtitle">We invite you to visit our showrooms or contact us for wholesale inquiries.</p>
+                </div>
+                <div class="max-w-4xl mx-auto bg-[#222222] p-8 md:p-12 rounded-lg shadow-lg">
+                    <div class="grid md:grid-cols-2 gap-12 text-center">
+                        <!-- Mumbai -->
+                        <div>
+                            <i data-lucide="map-pin" class="mx-auto w-10 h-10 text-brand-gold mb-4"></i>
+                            <h3 class="text-2xl font-serif text-white mb-3">Mumbai Showroom</h3>
+                            <p class="text-brand-gray">123 Zaveri Bazaar, Kalbadevi,<br>Mumbai, Maharashtra 400002</p>
+                            <a href="tel:+910000000000" class="inline-block mt-4 text-brand-light font-semibold hover:text-brand-gold">+91 (000) 000-0000</a>
+                        </div>
+                        <!-- Hyderabad -->
+                        <div>
+                            <i data-lucide="map-pin" class="mx-auto w-10 h-10 text-brand-gold mb-4"></i>
+                            <h3 class="text-2xl font-serif text-white mb-3">Hyderabad Showroom</h3>
+                            <p class="text-brand-gray">456 Charminar Rd, Laad Bazaar,<br>Hyderabad, Telangana 500002</p>
+                            <a href="tel:+910000000001" class="inline-block mt-4 text-brand-light font-semibold hover:text-brand-gold">+91 (000) 000-0001</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/20 border-t border-brand-gold/20">
+        <div class="container mx-auto px-6 py-8 text-center text-brand-gray">
+            <p class="font-semibold text-white">&copy; <span id="year"></span> Amba Gold. All Rights Reserved.</p>
+            <p class="text-sm mt-2">Design by Manoj & Bharat Jain</p>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-md z-[100] flex justify-center items-center p-4 transition-opacity duration-300">
+        <div class="bg-[#222222] text-brand-light rounded-lg shadow-2xl w-full max-w-lg relative p-6 md:p-8">
+            <button id="modal-close-btn" class="absolute top-4 right-4 text-brand-gray hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="grid md:grid-cols-2 gap-6 items-center">
+                <div class="overflow-hidden rounded-md"><img id="modal-img" src="" alt="Product Image" class="w-full h-auto max-h-[70vh] object-contain"></div>
+                <div>
+                    <h3 id="modal-title" class="text-2xl font-bold font-serif text-white mb-2">Product Name</h3>
+                    <p id="modal-desc" class="text-sm text-brand-gray mb-6">Product description.</p>
+                    <a href="#contact" id="modal-contact-btn" class="w-full text-center block bg-brand-gold text-brand-dark font-semibold py-3 px-10 rounded-full transition-all duration-300 hover:bg-yellow-400">
+                        Contact Us to Order
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Smooth Scroll Logic
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.length > 1 && document.querySelector(href)) {
+                        e.preventDefault();
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                        document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                    } else if (href === '#') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Modal Logic
+            const productCards = document.querySelectorAll('.product-card');
+            const modal = document.getElementById('product-modal');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const modalImg = document.getElementById('modal-img');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDesc = document.getElementById('modal-desc');
+            const modalContactBtn = document.getElementById('modal-contact-btn');
+
+            productCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const imgSrc = card.querySelector('img').src;
+                    const title = card.querySelector('h3').textContent;
+                    const desc = card.querySelector('p').textContent;
+
+                    modalImg.src = imgSrc;
+                    modalTitle.textContent = title;
+                    modalDesc.textContent = desc;
+                    modal.classList.remove('hidden');
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.add('hidden');
+            };
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            modalContactBtn.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Scroll Animation Logic
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.reveal').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+
