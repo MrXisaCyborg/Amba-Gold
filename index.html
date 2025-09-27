@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amba Gold - Wholesale Gold & Silver Jewellery</title>
+    <!-- Favicon Generated with SVG to match new logo -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231a1a1a'/><text x='15' y='75' font-family='Cormorant Garamond, serif' font-size='80' font-weight='bold' fill='%23f0f0f0'>A</text><text x='45' y='75' font-family='Cormorant Garamond, serif' font-size='80' font-weight='bold' fill='%23d4af37'>G</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,12 +109,6 @@
                 </button>
             </div>
         </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2 bg-brand-dark">
-            <a href="#about" class="block nav-link text-center py-2">About</a>
-            <a href="#products" class="block nav-link text-center py-2">Collection</a>
-            <a href="#contact" class="block nav-link text-center py-2">Contact</a>
-        </div>
     </header>
 
     <main>
@@ -214,6 +210,19 @@
         </div>
     </footer>
 
+    <!-- Mobile Menu Off-canvas -->
+    <div id="menu-overlay" class="hidden fixed inset-0 bg-black/60 z-40"></div>
+    <div id="mobile-menu" class="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-brand-dark p-8 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-brand-gray hover:text-white">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="flex flex-col space-y-8 mt-20 text-center">
+            <a href="#about" class="block text-brand-light hover:text-brand-gold text-2xl py-2">About</a>
+            <a href="#products" class="block text-brand-light hover:text-brand-gold text-2xl py-2">Collection</a>
+            <a href="#contact" class="block text-brand-light hover:text-brand-gold text-2xl py-2">Contact</a>
+        </div>
+    </div>
+
     <!-- Product Modal -->
     <div id="product-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-md z-[100] flex justify-center items-center p-4 transition-opacity duration-300">
         <div class="bg-[#222222] text-brand-light rounded-lg shadow-2xl w-full max-w-lg relative p-6 md:p-8">
@@ -240,22 +249,40 @@
 
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const menuOverlay = document.getElementById('menu-overlay');
+
+            const openMenu = () => {
+                mobileMenu.classList.remove('translate-x-full');
+                menuOverlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            };
+
+            const closeMenu = () => {
+                mobileMenu.classList.add('translate-x-full');
+                menuOverlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            };
+
+            menuBtn.addEventListener('click', openMenu);
+            closeMenuBtn.addEventListener('click', closeMenu);
+            menuOverlay.addEventListener('click', closeMenu);
 
             document.getElementById('year').textContent = new Date().getFullYear();
             
             // Smooth Scroll Logic
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
+                    if (mobileMenu.contains(this) || document.getElementById('mobile-menu').contains(this)) {
+                         closeMenu();
+                    }
                     const href = this.getAttribute('href');
                     if (href && href.length > 1 && document.querySelector(href)) {
                         e.preventDefault();
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                        }
-                        document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                        // Add a slight delay for menu to start closing before scroll
+                        setTimeout(() => {
+                           document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
                     } else if (href === '#') {
                         e.preventDefault();
                         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -316,4 +343,7 @@
     </script>
 </body>
 </html>
+
+
+
 
