@@ -141,9 +141,12 @@
                         <h2 class="font-serif text-3xl text-white font-bold">Live Market <span class="text-brand-gold">Rates</span></h2>
                         <p class="text-brand-gray text-sm mt-1">International Spot Prices & Indian Estimates</p>
                     </div>
-                    <div class="mt-4 md:mt-0 px-4 py-2 bg-brand-gold/10 rounded-full border border-brand-gold/20 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                        <span class="text-xs font-semibold text-brand-gold uppercase tracking-tighter">Market Data Active</span>
+                    <div class="mt-4 md:mt-0 flex flex-col items-end gap-2">
+                        <div class="px-4 py-2 bg-brand-gold/10 rounded-full border border-brand-gold/20 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                            <span class="text-xs font-semibold text-brand-gold uppercase tracking-tighter">Live Updates Active</span>
+                        </div>
+                        <p class="text-[10px] text-brand-gray uppercase tracking-widest mr-2">Last sync: <span id="last-update">--:--:--</span></p>
                     </div>
                 </div>
 
@@ -322,6 +325,7 @@
                     const silverPriceOz = 1 / data.rates.XAG;
                     const usdToInr = data.rates.INR;
 
+                    // Update UI Numbers
                     document.getElementById('gold-oz').innerText = goldPriceOz.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
                     document.getElementById('silver-oz').innerText = silverPriceOz.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 
@@ -330,6 +334,10 @@
 
                     document.getElementById('gold-inr').innerText = Math.round(goldInr10g).toLocaleString('en-IN');
                     document.getElementById('silver-inr').innerText = Math.round(silverInr1kg).toLocaleString('en-IN');
+
+                    // Update Timestamp
+                    const now = new Date();
+                    document.getElementById('last-update').innerText = now.toLocaleTimeString();
                 }
             } catch (error) {
                 console.error("Market Data Fetch Error:", error);
@@ -338,7 +346,14 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
+            
+            // Initial fetch
             fetchMarketRates();
+            
+            // Background Refresh Cycle
+            // We update every 15 minutes (900,000ms)
+            // This stays well within the 50 calls/day limit of the free plan
+            setInterval(fetchMarketRates, 900000);
 
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
