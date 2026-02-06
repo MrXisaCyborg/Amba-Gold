@@ -88,6 +88,14 @@
             border-top: 1px solid rgba(197, 160, 89, 0.2);
         }
 
+        /* Smooth Transition for Nav Icons */
+        .nav-bottom-item {
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .nav-bottom-item:active {
+            transform: scale(0.9);
+        }
+
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -122,18 +130,18 @@
 
     <!-- Mobile Navigation Bar -->
     <div class="fixed bottom-0 left-0 right-0 z-[100] md:hidden px-4 pb-4">
-        <div class="mobile-bottom-nav rounded-2xl flex justify-around items-center py-3 px-2 shadow-2xl">
-            <a href="#rates" class="flex flex-col items-center gap-1 text-[10px] uppercase font-semibold text-luxury-gold">
+        <div class="mobile-bottom-nav rounded-2xl flex justify-around items-center py-3 px-2 shadow-2xl" id="bottom-nav">
+            <a href="#rates" class="nav-bottom-item flex flex-col items-center gap-1 text-[10px] uppercase font-semibold text-luxury-gold">
                 <i data-lucide="line-chart" class="w-5 h-5"></i> Market
             </a>
-            <a href="#products" class="flex flex-col items-center gap-1 text-[10px] uppercase font-semibold text-zinc-400">
+            <a href="#about" class="nav-bottom-item flex flex-col items-center gap-1 text-[10px] uppercase font-semibold text-zinc-400">
+                <i data-lucide="book-open" class="w-5 h-5"></i> Story
+            </a>
+            <a href="#products" class="nav-bottom-item flex flex-col items-center gap-1 text-[10px] uppercase font-semibold text-zinc-400">
                 <i data-lucide="layout-grid" class="w-5 h-5"></i> Vault
             </a>
-            <a href="https://wa.me/919869609368" class="flex flex-col items-center gap-1 text-[10px] uppercase font-semibold text-zinc-400">
+            <a href="https://wa.me/919869609368" class="nav-bottom-item flex flex-col items-center gap-1 text-[10px] uppercase font-semibold text-zinc-400">
                 <i data-lucide="message-circle" class="w-5 h-5"></i> Trade
-            </a>
-            <a href="#contact" class="flex flex-col items-center gap-1 text-[10px] uppercase font-semibold text-zinc-400">
-                <i data-lucide="map-pin" class="w-5 h-5"></i> Shops
             </a>
         </div>
     </div>
@@ -147,7 +155,7 @@
             </a>
             <div class="hidden md:flex items-center gap-12 text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
                 <a href="#rates" class="hover:text-luxury-gold transition-colors">Exchange</a>
-                <a href="#about" class="hover:text-luxury-gold transition-colors">Heritage</a>
+                <a href="#about" class="hover:text-luxury-gold transition-colors">Legacy</a>
                 <a href="#products" class="hover:text-luxury-gold transition-colors">The Vault</a>
                 <a href="#contact" class="hover:text-luxury-gold transition-colors">Contact</a>
                 <a href="https://wa.me/919869609368" class="bg-luxury-gold text-pure-black px-6 py-2 rounded-full hover:bg-white transition-all font-bold">Trade Live</a>
@@ -242,32 +250,61 @@
             </div>
         </section>
 
-        <!-- HERITAGE -->
-        <section id="about" class="py-32 bg-pure-black relative overflow-hidden">
+        <!-- STORY & HERITAGE SECTION -->
+        <section id="about" class="py-32 relative bg-pure-black overflow-hidden">
+            <div class="absolute -right-20 top-1/4 w-96 h-96 bg-luxury-gold/5 rounded-full blur-[120px] pointer-events-none"></div>
+            
             <div class="container mx-auto px-6 relative z-10">
-                <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <!-- Part 1: The Founders -->
+                <div class="grid lg:grid-cols-2 gap-20 items-center mb-40">
                     <div class="relative reveal group">
                         <div class="absolute inset-0 border border-luxury-gold/10 translate-x-4 translate-y-4 rounded-[3rem] transition-transform group-hover:translate-x-6 group-hover:translate-y-6"></div>
-                        <img src="https://images.stockcake.com/public/6/7/8/6781cf0c-a6d1-4321-81ab-ba7de3873f8c_large/intricate-jewelry-crafting-stockcake.jpg" class="w-full h-[650px] object-cover rounded-[3rem] grayscale group-hover:grayscale-0 transition-all duration-1000 shadow-2xl" alt="Craftsmanship">
-                        <div class="absolute bottom-10 right-10 glass-panel p-8 rounded-3xl border-luxury-gold/40">
-                            <span class="block text-5xl font-serif text-luxury-gold">999.9</span>
-                            <p class="text-[10px] uppercase tracking-widest text-zinc-400">Purity Standard</p>
+                        <img src="https://images.stockcake.com/public/6/7/8/6781cf0c-a6d1-4321-81ab-ba7de3873f8c_large/intricate-jewelry-crafting-stockcake.jpg" class="w-full h-[600px] object-cover rounded-[3rem] grayscale group-hover:grayscale-0 transition-all duration-1000 shadow-2xl" alt="Craftsmanship">
+                        <div class="absolute bottom-10 left-10 glass-panel p-8 rounded-3xl border-luxury-gold/40 max-w-[280px]">
+                            <span class="block text-4xl font-serif text-luxury-gold italic mb-2">1984</span>
+                            <p class="text-[10px] uppercase tracking-widest text-zinc-400 leading-relaxed font-bold">The foundation of a multi-generational legacy in Zaveri Bazaar.</p>
                         </div>
                     </div>
                     <div class="reveal">
-                        <span class="text-luxury-gold text-[10px] font-bold uppercase tracking-[0.5em] mb-8 block">Legacy of the Jain Brothers</span>
-                        <h2 class="font-serif text-6xl md:text-8xl text-white mb-10 leading-tight">Mastering <br><span class="italic font-light opacity-60 underline decoration-luxury-gold/20 underline-offset-8">The Craft.</span></h2>
-                        <p class="text-zinc-400 text-lg leading-relaxed mb-12">For over 40 years, Ambaa Gold has defined the standard for bullion in the heart of Zaveri Bazaar. We aren't just selling gold; we are preserving the trust of thousands of retail partners across India.</p>
-                        <div class="grid grid-cols-2 gap-12">
-                            <div>
-                                <h4 class="text-white font-serif text-3xl mb-4">Integrity</h4>
-                                <p class="text-xs text-zinc-500 leading-loose uppercase tracking-widest">Every gram is tested for absolute purity under Swiss standards.</p>
+                        <span class="text-luxury-gold text-[10px] font-bold uppercase tracking-[0.5em] mb-8 block">The Architects of Purity</span>
+                        <h2 class="font-serif text-6xl md:text-8xl text-white mb-10 leading-tight">Manoj & <br><span class="italic font-light opacity-60">Bharat Jain.</span></h2>
+                        <div class="space-y-8 text-zinc-400 leading-relaxed text-sm">
+                            <p>What began as a shared vision between two brothers has transformed into one of India’s most trusted wholesale bullion institutions. Founded in 1984, Ambaa Gold was built on the simple yet radical principle that in the precious metals trade,</p>
+                            <!-- Visual highlight for the quote -->
+                            <div class="pl-6 border-l-2 border-luxury-gold/40">
+                                <p class="text-xl md:text-2xl font-serif italic text-white leading-snug">
+                                    "<span class="text-luxury-gold font-bold not-italic">Integrity</span> is the only currency that matters."
+                                </p>
                             </div>
-                            <div>
-                                <h4 class="text-white font-serif text-3xl mb-4">Wholesale</h4>
-                                <p class="text-xs text-zinc-500 leading-loose uppercase tracking-widest">Transparent pricing that allows our partners to grow their business.</p>
-                            </div>
+                            <p>Manoj and Bharat Jain combined traditional craftsmanship with an uncompromising approach to transparency. They understood that to serve the wholesale market, they needed to be more than just suppliers; they needed to be guardians of their partners' reputations.</p>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Part 2: Trust & Transparency Cards -->
+                <div class="grid md:grid-cols-3 gap-8 reveal">
+                    <div class="glass-panel p-10 rounded-[3rem] border-white/5 hover:border-luxury-gold/30 transition-all duration-700">
+                        <div class="w-12 h-12 glass-panel flex items-center justify-center text-luxury-gold rounded-2xl mb-8">
+                            <i data-lucide="eye" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-white font-serif text-3xl mb-6 italic">Radical <br>Transparency</h4>
+                        <p class="text-zinc-500 text-xs leading-relaxed uppercase tracking-widest">From live pricing synced with global markets to detailed chemical assaying reports, we leave no room for doubt. Our partners know exactly what they are acquiring.</p>
+                    </div>
+
+                    <div class="glass-panel p-10 rounded-[3rem] border-white/5 hover:border-luxury-gold/30 transition-all duration-700">
+                        <div class="w-12 h-12 glass-panel flex items-center justify-center text-luxury-gold rounded-2xl mb-8">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-white font-serif text-3xl mb-6 italic">Unwavering <br>Trust</h4>
+                        <p class="text-zinc-500 text-xs leading-relaxed uppercase tracking-widest">Forty years in Zaveri Bazaar isn't just about survival; it's about building a name that retailers can rely on during market volatility. Your growth is our legacy.</p>
+                    </div>
+
+                    <div class="glass-panel p-10 rounded-[3rem] border-white/5 hover:border-luxury-gold/30 transition-all duration-700">
+                        <div class="w-12 h-12 glass-panel flex items-center justify-center text-luxury-gold rounded-2xl mb-8">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-white font-serif text-3xl mb-6 italic">Ethical <br>Standard</h4>
+                        <p class="text-zinc-500 text-xs leading-relaxed uppercase tracking-widest">We only deal in LBMA and BIS hallmarked bullion. Every piece is sourced through strictly regulated channels, ensuring conflict-free and pure excellence.</p>
                     </div>
                 </div>
             </div>
@@ -285,7 +322,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                    <!-- Collection Items -->
                     <div class="touch-highlight vault-card group relative aspect-[4/5] overflow-hidden rounded-[3rem] reveal cursor-pointer">
                         <img src="https://assets.vogue.in/photos/67124e4896021aa21abbbb94/2:3/w_2560%2Cc_limit/Snapinsta.app_399808804_3692270281010719_2108380079110491784_n_1080.jpg" class="w-full h-full object-cover grayscale transition-all duration-1000" alt="Kundan">
                         <div class="absolute inset-0 bg-gradient-to-t from-pure-black via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
@@ -472,6 +508,19 @@
             
             initParticles();
             animateParticles();
+
+            // Bottom Nav Active Toggle Logic
+            const navItems = document.querySelectorAll('.nav-bottom-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navItems.forEach(i => {
+                        i.classList.remove('text-luxury-gold');
+                        i.classList.add('text-zinc-400');
+                    });
+                    item.classList.remove('text-zinc-400');
+                    item.classList.add('text-luxury-gold');
+                });
+            });
 
             // Mobile Touch Highlight Logic
             const touchElements = document.querySelectorAll('.touch-highlight');
