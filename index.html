@@ -152,14 +152,14 @@
         </section>
 
         <!-- MARKET HUB: High-Density Trading Terminal -->
-        <section id="rates" class="py-24 bg-zinc-dark relative">
+        <section id="rates" class="py-16 md:py-24 bg-zinc-dark relative">
             <div class="container mx-auto px-6">
-                <div class="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16 reveal">
+                <div class="flex flex-col lg:flex-row justify-between lg:items-end items-start gap-6 mb-12 reveal">
                     <div class="max-w-2xl">
                         <span class="text-luxury-gold text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block">Live Trading Terminal</span>
-                        <h2 class="font-serif text-5xl md:text-7xl text-white">Market <span class="italic font-light">Direct</span></h2>
+                        <h2 class="font-serif text-5xl md:text-7xl text-white leading-tight">Market <span class="italic font-light">Direct</span></h2>
                     </div>
-                    <div class="glass-panel px-6 py-3 rounded-2xl flex items-center gap-4">
+                    <div class="glass-panel px-5 py-3 rounded-2xl flex items-center gap-3">
                         <span class="flex h-2 w-2 relative">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -168,50 +168,51 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- Optimized Grid for Mobile (2 Columns) -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                     <!-- International Gold -->
-                    <div class="glass-panel p-8 rounded-[2rem] reveal">
-                        <div class="flex justify-between items-start mb-10">
-                            <span class="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Global Spot</span>
-                            <i data-lucide="globe-2" class="w-4 h-4 text-zinc-700"></i>
+                    <div class="glass-panel p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] reveal">
+                        <div class="flex justify-between items-start mb-6 md:mb-10">
+                            <span class="text-[8px] md:text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Global Spot</span>
+                            <i data-lucide="globe-2" class="w-3 h-3 md:w-4 md:h-4 text-zinc-700"></i>
                         </div>
-                        <p class="text-[10px] text-zinc-400 uppercase tracking-widest mb-2">Gold XAU / Oz</p>
-                        <h4 class="text-4xl font-serif text-white tracking-tighter">$<span id="gold-oz">----</span></h4>
+                        <p class="text-[9px] md:text-[10px] text-zinc-400 uppercase tracking-widest mb-1 md:mb-2 leading-none">XAU / Oz</p>
+                        <h4 class="text-2xl sm:text-3xl md:text-4xl font-serif text-white tracking-tighter">$<span id="gold-oz">----</span></h4>
                     </div>
 
                     <!-- Indian Gold -->
-                    <div class="glass-panel p-8 rounded-[2rem] border-luxury-gold/40 shadow-2xl reveal" style="transition-delay: 100ms;">
-                        <div class="flex justify-between items-start mb-10">
-                            <span class="text-[9px] font-bold text-luxury-gold uppercase tracking-widest">Indian Market</span>
-                            <i data-lucide="trending-up" class="w-4 h-4 text-luxury-gold"></i>
+                    <div class="glass-panel p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border-luxury-gold/40 shadow-2xl reveal" style="transition-delay: 100ms;">
+                        <div class="flex justify-between items-start mb-6 md:mb-10">
+                            <span class="text-[8px] md:text-[9px] font-bold text-luxury-gold uppercase tracking-widest">Indian Market</span>
+                            <i data-lucide="trending-up" class="w-3 h-3 md:w-4 md:h-4 text-luxury-gold"></i>
                         </div>
-                        <p class="text-[10px] text-luxury-gold uppercase tracking-widest mb-2">24K Gold / 10g</p>
-                        <h4 class="text-4xl font-serif text-white tracking-tighter">₹<span id="gold-inr">----</span></h4>
+                        <p class="text-[9px] md:text-[10px] text-luxury-gold uppercase tracking-widest mb-1 md:mb-2 leading-none">24K / 10g</p>
+                        <h4 class="text-2xl sm:text-3xl md:text-4xl font-serif text-white tracking-tighter">₹<span id="gold-inr">----</span></h4>
                     </div>
 
                     <!-- International Silver -->
-                    <div class="glass-panel p-8 rounded-[2rem] reveal" style="transition-delay: 200ms;">
-                        <div class="flex justify-between items-start mb-10">
-                            <span class="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Global Spot</span>
-                            <i data-lucide="zap" class="w-4 h-4 text-zinc-700"></i>
+                    <div class="glass-panel p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] reveal" style="transition-delay: 200ms;">
+                        <div class="flex justify-between items-start mb-6 md:mb-10">
+                            <span class="text-[8px] md:text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Global Spot</span>
+                            <i data-lucide="zap" class="w-3 h-3 md:w-4 md:h-4 text-zinc-700"></i>
                         </div>
-                        <p class="text-[10px] text-zinc-400 uppercase tracking-widest mb-2">Silver XAG / Oz</p>
-                        <h4 class="text-4xl font-serif text-white tracking-tighter">$<span id="silver-oz">----</span></h4>
+                        <p class="text-[9px] md:text-[10px] text-zinc-400 uppercase tracking-widest mb-1 md:mb-2 leading-none">XAG / Oz</p>
+                        <h4 class="text-2xl sm:text-3xl md:text-4xl font-serif text-white tracking-tighter">$<span id="silver-oz">----</span></h4>
                     </div>
 
                     <!-- Indian Silver -->
-                    <div class="glass-panel p-8 rounded-[2rem] reveal" style="transition-delay: 300ms;">
-                        <div class="flex justify-between items-start mb-10">
-                            <span class="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Wholesale Bar</span>
-                            <i data-lucide="package-check" class="w-4 h-4 text-zinc-700"></i>
+                    <div class="glass-panel p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] reveal" style="transition-delay: 300ms;">
+                        <div class="flex justify-between items-start mb-6 md:mb-10">
+                            <span class="text-[8px] md:text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Wholesale Bar</span>
+                            <i data-lucide="package-check" class="w-3 h-3 md:w-4 md:h-4 text-zinc-700"></i>
                         </div>
-                        <p class="text-[10px] text-zinc-400 uppercase tracking-widest mb-2">Silver / 1kg</p>
-                        <h4 class="text-4xl font-serif text-white tracking-tighter">₹<span id="silver-inr">----</span></h4>
+                        <p class="text-[9px] md:text-[10px] text-zinc-400 uppercase tracking-widest mb-1 md:mb-2 leading-none">Silver / 1kg</p>
+                        <h4 class="text-2xl sm:text-3xl md:text-4xl font-serif text-white tracking-tighter">₹<span id="silver-inr">----</span></h4>
                     </div>
                 </div>
 
-                <div class="mt-12 text-center">
-                    <p class="text-[8px] uppercase tracking-[0.5em] text-zinc-600 italic">Delayed 24h on free terminal. factorization: 15% estimated local duties & taxes included.</p>
+                <div class="mt-8 md:mt-12 text-center px-4">
+                    <p class="text-[8px] uppercase tracking-[0.4em] text-zinc-600 italic">Delayed 24h on free terminal. 15% estimated local duties & taxes included.</p>
                 </div>
             </div>
         </section>
@@ -298,7 +299,7 @@
         <section class="py-40 relative px-6">
             <div class="container mx-auto max-w-5xl glass-panel p-12 md:p-24 rounded-[4rem] text-center border-luxury-gold/30 reveal">
                 <i data-lucide="bell" class="w-12 h-12 text-luxury-gold mx-auto mb-10 animate-pulse"></i>
-                <h2 class="font-serif text-5xl md:text-7xl text-white mb-8">Join the <span class="italic font-light">Inner Circle.</span></h2>
+                <h2 class="font-serif text-5xl md:text-7xl text-white mb-8 leading-tight">Join the <span class="italic font-light">Inner Circle.</span></h2>
                 <p class="text-zinc-400 text-sm max-w-xl mx-auto mb-16 leading-relaxed">Experience a direct line to the Zaveri Bazaar market. Join our morning broadcast for instant MCX updates and arrival alerts.</p>
                 <a href="https://wa.me/919869609368" class="inline-flex items-center gap-4 bg-[#25D366] text-white px-12 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest hover:scale-105 transition-all shadow-2xl">
                     <i data-lucide="message-circle"></i> Join Price Broadcast
